@@ -1,44 +1,21 @@
-<div class="sidebar" [class.sidebar-close]="!openSidebar">
-  <div class="logo-details">
-    <div class="logo"></div>
+<nav class="navbar--container sticky">
+  <div class="navbar--title"><h4>MES Plant-4</h4></div>
+  <div class="navbar--icon" (click)="toggleMenu()">
+    <i class="fas fa-bars"></i>
   </div>
-  <ul class="nav-links" id="nav-links" style="padding: 0;">
-    <li *ngFor="let item of menuSidebar" #itemEl routerLinkActive="active">
-      <div *ngIf="item.sub_menu.length == 0" class="dropdown-title">
-        <a [routerLink]="[item.link]" (click)="closeSidebarOnMobile()">
-          <i [class]="item.icon"></i>
-          <span class="link_name">{{ item.link_name }}</span>
-        </a>
-      </div>
-      <div *ngIf="item.sub_menu.length > 0" class="dropdown-title" (click)="showSubmenu(itemEl)">
-        <a>
-          <i [class]="item.icon"></i>
-          <span class="link_name">{{ item.link_name }}</span>
-        </a>
-       <!-- <i class="bi bi-caret-down-fill"></i>-->
-      </div>
-      <ul class="sub-menu" [class.blank]="item.sub_menu.length == 0">
-        <li>
-          <a class="link_name">{{ item.link_name }}</a>
-        </li>
-        <li *ngFor="let item_sub of item.sub_menu" routerLinkActive="active">
-          <a [routerLink]="[item_sub.link]">{{ item_sub.link_name }}</a>
-        </li>
-      </ul>
-    </li>
-  </ul>
-  
+</nav>
+
+<div class="nav--open close sticky">
+  <div class="nav--open-icon" (click)="toggleMenu()">
+    <i class="fas fa-times"></i>
+  </div>
+
+  <div class="nav--open-menu">
+    <a href="#">about</a>
+    <a href="#">work</a>
+    <a href="#">services</a>
+    <a href="#">blog</a>
+    <a href="#">contact</a>
+  </div>
 </div>
-<div class="backdrop" *ngIf="openSidebar" (click)="closeSidebarOnMobile()"></div>
-<section class="home-section">
-  <div class="home-header">
-    <div class="hamburger-menu">
-      <input type="checkbox" id="checkbox-hamburger-menu" [(ngModel)]="openSidebar" />
-      <label class="label-hamburger-menu" for="checkbox-hamburger-menu">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </label>
-    </div>
-  </div>
-</section>
+
