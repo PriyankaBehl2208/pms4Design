@@ -1,0 +1,37 @@
+
+	.navbar-nav li:hover>ul.dropdown-menu {
+        display: block;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: #f9f3ca;
+        padding-left: 10px;
+        border-radius: .6em;
+        margin: 0 5px 5px 0;
+    }
+
+    .dropdown-submenu {
+        position: relative;
+        font-size: 14px;
+        margin: 5px 5px 5px 0;
+        background-color: #f9f3ca;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        border-radius: .6em;
+    }
+
+    .dropdown-submenu>.dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -6px;
+        font-size: 13px;
+        background-color: #f9f3ca;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    /* rotate caret on hover */
+    .dropdown-menu>li>a:hover:after {
+        text-decoration: underline;
+        transform: rotate(-90deg);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 13px;
+        background-color: #f9f3ca;
+        margin: 0 5px 5px 0;
+    }

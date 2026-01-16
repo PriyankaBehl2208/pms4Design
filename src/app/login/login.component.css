@@ -1,0 +1,34 @@
+.bg-cover {
+  background: url('/heavy-equipment-brands.jpg') no-repeat center center;
+  background-size: cover;      /* scales image proportionally */
+  min-height: 100vh;           /* full viewport height */
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.card-custom {
+  border-radius: .6em;
+  border: 1px solid yellow;
+  background-color: rgba(255,255,255,0.85); /* semi-transparent white for readability */
+}
+
+.card-body-custom {
+  padding: 1rem;
+}
+
+.logo-img {
+  max-height: 70px;
+  width: auto;
+}
+
+.icon-large {
+  font-size: 4rem;
+  color: red;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  color: yellow;
+  font-weight: bold;
+}

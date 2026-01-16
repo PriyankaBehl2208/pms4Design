@@ -1,0 +1,95 @@
+<div
+    style="background-image: url('hydbackpix.jpg'); background-repeat: no-repeat; background-size: 100vw 100vh; height: 100vh;">
+    <div class="main" style="font-family: Verdana, Geneva, Tahoma, sans-serif; size: 16px; margin: auto;">
+        <div class="row" style="margin: auto;">
+            <div class="col-lg-1 col-mg-1 col-sm-1">
+                <app-leftsidebar [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+                    (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)" />
+            </div>
+            <div class="col-lg-11 col-mg-11 col-sm-11">
+                <div class="row justify-content-center" style="opacity: 93%; width: 90vw; padding-top: 40px; margin: auto;">
+                    <div class="col-lg-9 col-mg-9 col-sm-9">
+                        <div class="card"
+                            style="border-radius: 1em; border-bottom-color: red; border-left-color: red; border-right-color: red;">
+                            <div class="card-header shadow p-3 rounded" style="background-color: #38A997; font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 0.6rem !important;  font-size:16px !important;border-radius: .6em; box-shadow: 0 5px 10px rgba(0,0,0,.2);color:white;">New
+                                User
+                                Creation</div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-6 col-mg-6 col-sm-6">
+                                        UserName: <input type="text" class="form-control" />
+                                    </div>
+                                    <div class="col-lg-6 col-mg-6 col-sm-6">
+                                        Password: <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 5px;">
+                                    <div class="col-lg-6 col-mg-6 col-sm-6">
+                                        FamilyCode: <select class="form-control"></select>
+                                    </div>
+                                    <div class="col-lg-6 col-mg-6 col-sm-6">
+                                        PrivilegeCode: <select class="form-control"></select>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 5px;">
+                                    <div class="col-lg-6 col-mg-6 col-sm-6">
+                                        Stage: <select class="form-control"></select>
+                                    </div>
+                                    <div class="col-lg-6 col-mg-6 col-sm-6">
+                                        PU Name: <select class="form-control"></select>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 5px;">
+                                    <div class="col-lg-6 col-mg-6 col-sm-6">
+                                        Category: <select class="form-control"></select>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 5px;">
+                                    <div class="col-lg-6 col-mg-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header shadow p-2 rounded"
+                                                style="background-color: red; color: white;">Barcode Print</div>
+                                            <div class="card-body">
+                                                Replace Job <input type="checkbox" style="margin-right: 15px;" />
+                                                Change Job <input type="checkbox" style="margin-right: 15px;" />
+                                                Invoice Search <input type="checkbox" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-mg-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header shadow p-2 rounded"
+                                                style="background-color: red; color: white;">User Rights</div>
+                                            <div class="card-body">
+                                                Is Super <input type="checkbox" style="margin-right: 15px;" />
+                                                Is Active <input type="checkbox" style="margin-right: 15px;" />
+                                                PDI User <input type="checkbox" style="margin-right: 15px;" />
+                                                RollOut Hold <input type="checkbox" style="margin-right: 15px;" />
+                                                ByPass Store <input type="checkbox" />
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center" style="padding: 10px;">
+                                    <div class="col-lg-6 col-mg-6 col-sm-6"><input type="button" value="Submit"
+                                            class="form-control" style="background-color: #38A997; color: white;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fixed-bottom p-3" style="background-color: #f8b525; width: 100vw;">
+                    <div class="container">
+                        <div class="row" style="background-color: #f8b525; height: 4vw;">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

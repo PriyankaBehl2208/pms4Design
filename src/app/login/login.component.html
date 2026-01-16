@@ -1,0 +1,57 @@
+<div class="container-fluid bg-cover">
+  <!-- Header -->
+  <div class="row py-2">
+    <div class="col-12 text-center">
+      <img src="esc3.png" class="img-fluid" alt="Escorts Logo" />
+    </div>
+  </div>
+
+  <!-- Centered Card -->
+  <div class="row justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-8">
+      <div class="card card-custom shadow-lg">
+        <div class="card-body card-body-custom">
+
+          <!-- Logo -->
+          <div class="text-center mb-3">
+            <img src="meslogo.png" class="logo-img img-fluid" alt="MES Logo" />
+          </div>
+
+          <!-- Icon -->
+          <div class="text-center mb-3">
+            <i class="bi bi-person-circle icon-large"></i>
+          </div>
+
+          <!-- Username -->
+          <div class="input-group mb-3">
+            <span class="input-group-text">
+              <i class="bi bi-person-fill text-success"></i>
+            </span>
+            <input type="text" placeholder="UserName" class="form-control"
+                   formControlName="uname" [(ngModel)]="uname" required autofocus />
+          </div>
+
+          <!-- Password -->
+          <div class="input-group mb-3">
+            <span class="input-group-text">
+              <i class="bi bi-key text-success"></i>
+            </span>
+            <input type="password" placeholder="Password" class="form-control"
+                   formControlName="pwd" [(ngModel)]="pwd" required />
+          </div>
+
+          <!-- Login Button -->
+          <div class="text-center">
+            <button type="submit" class="btn btn-warning fw-bold" (click)="redirect()">Login</button>
+          </div>
+
+          <!-- Footer -->
+          <div class="text-center mt-3">
+            <span class="footer-text" style="color: black;">&copy; Escorts Kubota Ltd 2025-26</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
