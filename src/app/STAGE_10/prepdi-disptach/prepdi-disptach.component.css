@@ -1,0 +1,68 @@
+  .logout-btn {
+    background-color: #f44336;
+    border: none;
+    padding: 8px 16px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: darkcyan;
+    color: white;
+    padding: 10px 20px;
+    padding-bottom: 3px;
+  }
+
+.container {
+  margin-left: 10px;  /* Reduce from default (often 15px or more) */
+  margin-right: 10px;
+  /* Or use padding if margin isn't applied */
+  padding-left: 10px;
+  padding-right: 10px;
+   max-width: 98%;
+  margin-right: auto;
+}
+
+  .checklist-container {
+    background-color: #f3eaff; /* Light purple */
+    font-size:13px;
+
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .custom-tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 250px;
+  background-color: #343a40;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 10px 12px;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 105%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.bold-text {
+  font-weight: bold;
+  font-size:12px;
+  background-color:#f8d775;
+}
+.custom-tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}

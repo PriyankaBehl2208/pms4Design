@@ -85,7 +85,10 @@ debugger;
                    debugger;
                    this.responseData=response.message;
                      debugger;
-                   sessionStorage.setItem('authToken', response.message);
+                   this.sessionService.setItem('authToken', response.token);
+
+                    this.sessionService.setItem('STAGEID', response.stageID);
+
                     this.router.navigate(['/dash']);
                  }
             

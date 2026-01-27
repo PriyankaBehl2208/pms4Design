@@ -11,11 +11,13 @@
   </div>
 
   <div class="nav--open-menu">
-    <a href="#">about</a>
-    <a href="#">work</a>
-    <a href="#">services</a>
-    <a href="#">blog</a>
-    <a href="#">contact</a>
+
+ 
+   <li *ngIf="showPreDispatch"><a href="#" (click)="onPrePDIDISPTACH($event)">Pre Pdi Dispatch</a></li>
+   <li *ngIf="showPreDispatch"><a href="#" (click)="onPrePDIDISPTACH_REVIEW($event)">Pre Pdi Review</a></li>
+   
+    
+    <a href="#">Logout</a>
   </div>
 </div>
 

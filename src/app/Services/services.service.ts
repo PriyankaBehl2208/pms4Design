@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserListVerify } from '../Model/Model';
+import { FINAL_SAVE, GET_ENGINEVALUE, GETMAIN_LIST, REMARKS_VAL, UserListVerify } from '../Model/Model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,7 @@ export class ServicesService {
       let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
       if (bearerToken) {
+        debugger;
         headers = headers.set('Authorization', `Bearer ${bearerToken}`);
       }
 
@@ -40,10 +41,60 @@ export class ServicesService {
 
 
 
-       ValidateUser(user:UserListVerify):Observable<any>
+      ValidateUser(user:UserListVerify):Observable<any>
       {
         debugger;
        return this.apiCall('POST','MesChecklist/VALIDATE_USER',user);
       }
+
+    FINAL_SAVE_ENGINE(user:FINAL_SAVE):Observable<any>
+     {
+       debugger;
+       return this.apiCall('POST','MesChecklist/FINAL_SAVE',user,undefined,sessionStorage.getItem('authToken') as string);
+     } 
+
+     
+      FINAL_SAVE_REVIEW(user:FINAL_SAVE):Observable<any>
+     {
+       debugger;
+       return this.apiCall('POST','MesChecklist/FINAL_SAVE_REVIEW',user,undefined,sessionStorage.getItem('authToken') as string);
+     } 
+
+     GETMAIN_LIST_REVIEW(user:GETMAIN_LIST):Observable<any>
+     {
+       debugger;
+       return this.apiCall('POST','MesChecklist/GETMAIN_LIST_REVIEW',user,undefined,sessionStorage.getItem('authToken') as string);
+     }
+
+    GETMAIN_LIST(user:GETMAIN_LIST):Observable<any>
+     {
+       debugger;
+       return this.apiCall('POST','MesChecklist/GETMAIN_LIST',user,undefined,sessionStorage.getItem('authToken') as string);
+     }
+
+      GET_VALUE_ENGINE(user:GET_ENGINEVALUE):Observable<any>
+      {
+        debugger;
+       return this.apiCall('POST','MesChecklist/GET_ENGINEVALUE',user,undefined,sessionStorage.getItem('authToken') as string);
+      }
+
+        UPDATE_REMARKS(user:REMARKS_VAL):Observable<any>
+     {
+       debugger;
+       return this.apiCall('POST','MesChecklist/UPDATE_REMARKS',user,undefined,sessionStorage.getItem('authToken') as string);
+     } 
+
+       UPDATE_SATUSOK(user:REMARKS_VAL):Observable<any>
+     {
+       debugger;
+       return this.apiCall('POST','MesChecklist/UPDATE_STATUSOK',user);
+     }  
+
+      STATUSDONE_OK(user:REMARKS_VAL):Observable<any>
+     {
+       debugger;
+       return this.apiCall('POST','MesChecklist/STATUSDONE_OK',user);
+     }  
+     
    
     }

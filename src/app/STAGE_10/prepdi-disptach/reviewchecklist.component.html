@@ -1,0 +1,221 @@
+<header class="header">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <div class="logo-container">
+       <img src="Escorts.png" alt="Company Logo" height="50px" />
+      <!-- <h4 class="header-title"> Productionized Model List</h4> -->
+    </div>
+    <button class="logout-btn" (click)="home()">HOME</button>
+
+  </header>
+
+
+
+  <div class="container-fluid px-2"> 
+<div class="container my-4 p-4 shadow rounded bg-white checklist-container" style="padding:0px;">
+   
+
+  
+
+ <div class="col-md-12">
+
+ <input type="file" class="form-control" (change)="onFileSelected($event)" accept="image/*" />
+      
+      </div>
+
+
+      <div class="col-md-12">
+
+
+        <label class="form-label small" style="font-weight: bold;">Engine Number</label>
+ <input type="text" class="form-control form-control-sm" [(ngModel)]="Engine_NO"/>
+ </div>
+
+
+       
+      
+     
+      
+      <div class="col-md-12">
+        
+        
+        <label class="form-label small" style="font-weight: bold;">Model No.</label>
+        <input type="text" class="form-control form-control-sm" [(ngModel)]="Model_NO"/>
+
+      </div>
+
+     <div class="col-md-12">
+        
+       
+        <label class="form-label small" style="font-weight: bold;">Pin</label>
+        <input type="text" class="form-control form-control-sm" [(ngModel)]="Pin"/>
+
+      </div>
+
+    <div class="row mb-12">
+
+
+        <div class="col-md-12">
+      <label class="form-label small" style="font-weight: bold;">Department</label>
+      <select class="form-control" [(ngModel)]="Department"  >
+            <option>--Select One--</option>
+            <option>BHL</option>
+            <option>Compactor</option>
+            <option>F15</option>
+            <option>PNC</option>
+             <option>BHL Dynamic</option>
+          </select>
+    </div>
+
+      <div class="col-md-1">
+        <button class="logout-btn" (click)="OK()" style="margin-top:20px;">OK</button>
+      </div> 
+
+
+    </div>
+
+
+<div class="grid-container">
+    <table class="table table-bordered small text-center align-middle">
+      <thead class="table-light">
+         <tr>
+          <th>No.</th>
+          <th>Inspection Points</th>
+          <th>How To Check</th>
+         <th>Status</th>
+          <th>Rework Status</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+    <tr *ngFor="let u of responseData;let i = index">
+         
+          <td>{{u.srno}}</td>
+       <td [ngClass]="{'bold-text':u.subhead === 1}">{{ u.inspectionPoint }}</td>
+        <td [ngClass]="{'bold-text':u.subhead === 1}">
+          
+          {{ u.howtocheck }}
+
+
+
+        </td>
+   <td><button  style="margin-top:10px; border-radius:5px; border: 0ch; Height:40px;width:40px;" *ngIf="u.subhead === 0"    (click)="statusok(u.id, $event)"  [ngStyle]="{ 'background-color': u.prepdistatus === 'OK' ? 'Green' : 'gray', color: 'white' }">OK</button>
+      
+    
+    <button  style="margin-top:5px; border-radius:5px; border: 0ch; Height:40px; width:40px;"  *ngIf="u.subhead === 0"     (click)="statusnotok(u.id, $event)"
+      [ngStyle]="{ 'background-color': u.prepdistatus === 'NOT OK' ? 'red' : 'gray', color: 'white'}"
+      >NOT OK</button></td>
+
+
+<td><button  style="margin-top:5px; border-radius:5px; border: 0ch;  Height:40px; width:42px;"  *ngIf="u.subhead === 0"  (click)="statusdone(u.id, $event)"  [ngStyle]="{ 'background-color': u.reworkstatus === 'OK' ? 'Green' : 'gray', color: 'white' }">DONE</button>
+    
+
+
+
+        </tr> 
+
+
+
+
+        
+      </tbody>
+
+
+
+    </table>
+</div>
+
+<div class="text-center mt-4">
+  <button class="btn btn-purple btn-lg px-5 logout-btn" (click)="FinalSAVE()">
+    Final Close
+  </button>
+</div>
+
+  </div>
+  </div>
+
+
+
+<div class="modal fade" id="checklistModal" tabindex="-1" aria-labelledby="checklistModalLabel" aria-hidden="true">
+  <!-- <div class="modal-dialog modal-dialog-centered modal-lg"> -->
+    <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:darkcyan;">
+        <h5 class="modal-title" id="checklistModalLabel">📋 Capture Image</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body p-0 m-0">
+        <div class="camera-container w-100 h-100">
+         
+          <div class="video-wrapper w-100 h-100" [ngStyle]="{'transform': 'scale(' + zoom + ')'}">
+            <video #video autoplay playsinline class="w-100 h-100 object-fit-cover"></video>
+            <!-- <video #video autoplay playsinline></video> -->
+          </div>
+         
+        </div>
+        <!-- <div class="zoom-controls mt-2">
+          <label>Zoom: </label>
+          <input type="range" min="1" max="2" step="0.1" [(ngModel)]="zoom">
+        </div> -->
+         
+        <canvas #canvas hidden></canvas>
+      </div>
+
+       <div class="modal-footer">
+        <button class="btn btn-success mt-3" (click)="capture()">📸 Capture</button>
+        <button class="btn btn-success mt-3" data-bs-dismiss="modal">Close</button>
+      </div> 
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="modal fade" id="RemarksModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2> Enter Remarks</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <label for="fcode">Remarks:</label>
+
+        <textarea [(ngModel)]="Remarks"
+          id="fcode"
+          name="fcode"
+          placeholder="Enter Remarks"
+          style="width:300px; height:100px; margin-right:5px;">
+</textarea>
+       <!-- <input type="text"  [(ngModel)]="Remarks"  style="width:300px; height:100px; margin-right:5px;" id="fcode" name="fcode" placeholder="Enter Remarks"> -->
+      </div>
+       <div class="modal-footer">
+        <button class="btn btn-success mt-3"  data-bs-dismiss="modal" (click)="RemarkSave()"> Save</button>
+        <button class="btn btn-danger mt-3" data-bs-dismiss="modal">Close</button>
+      </div> 
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabel">Captured Image</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img [src]="selectedImage" alt="Captured" class="img-fluid" />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  
