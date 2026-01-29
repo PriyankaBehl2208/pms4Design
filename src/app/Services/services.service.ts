@@ -28,7 +28,7 @@ export class ServicesService {
 
       if (bearerToken) {
         debugger;
-        headers = headers.set('Authorization', `Bearer ${bearerToken}`);
+       headers = headers.set('Authorization', `Bearer ${bearerToken.replace(/^"|"$/g, '')}`);
       }
 
       const options: any = {
